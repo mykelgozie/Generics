@@ -27,13 +27,11 @@ namespace Generics
         public void Push(T newitem)
         {
             items.Add(newitem);
-
         }
 
         //Get item size
         public int Size()
         {
-
             return items.Count;
         }
 
@@ -49,18 +47,17 @@ namespace Generics
         {
             if (items.Count == 0)
             {
-                return false;
+                return true;
             }
             else
             {
-                return true;
+                return false;
             }
         }
 
         //remove element at the end
         public T Pop()
         {
-
             int last = items.Count;
             T element = items[last - 1];
             items.RemoveAt(last - 1);
