@@ -6,7 +6,10 @@ namespace Generics
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            StackClass<int> check = new StackClass<int>();
+            check.Push(3);
+
+            check.Print();
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Generics
 {
-    class StackClass<T>
+    class StackClass<T> where T: IComparable
     {
 
         private List<T> items;
