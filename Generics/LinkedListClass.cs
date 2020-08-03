@@ -138,40 +138,54 @@ namespace Generics
         }
 
 
-        public void InsertAt(int position, ListNodeClass<T> value)
+        public void InsertAt(int position, T value)
         {
+
+            ListNodeClass<T> adding = new ListNodeClass<T>(value);
             int number = 0;
-            Current = Head;
-
-            while (Current != null)
+            if (position == 0)
             {
-                
-                if (number == position)
-                {
 
-                    Result = Current;
-                    break;
-
-
-                }
-
-                Current = Current.Next;
-
+                adding.Next = Head;
+                Head.Previous = adding;
+                Head = adding;
                 count++;
 
 
             }
+            else
+            {
 
-            Current.Previous = value.Next;
-            Current.Previous.Next = value.Previous;
-         
+                Current = Head;
 
-            
+                while (number <= position)
+                {
+
+                    if (number == position)
+                    {
+
+                        Result = Current;
+
+                        Result.Previous.Next = adding;
+                        adding.Previous = Result.Previous;
+                        Result.Previous = adding;
+                        adding.Next = Result;
+                     
+                     
+
+                    }
+
+                    Current = Current.Next;
+
+                    number++;
 
 
+                }
 
 
-        }
+            }
+
+                }
 
         public int IndexItem(T value)
         {
@@ -181,7 +195,7 @@ namespace Generics
 
             while (Current != null && position <= count)
             {
-                position++;
+               
                 if (Current.Value.Equals(value))
                 {
 
@@ -190,8 +204,9 @@ namespace Generics
                 }
 
                 Current = Current.Next;
+                position++;
 
-               
+
 
 
             }
