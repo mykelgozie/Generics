@@ -6,7 +6,6 @@ namespace Generics
     {
         static void Main(string[] args)
         {
-            
         }
     }
 }
