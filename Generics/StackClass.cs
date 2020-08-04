@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Reflection.Emit;
 using System.Text;
 
 namespace Generics
 {
-    class StackClass<T> where T: IComparable
+    class StackClass<T> : IEnumerable
     {
+        int index = -1;
 
         private List<T> items;
 
@@ -17,16 +19,43 @@ namespace Generics
             items = new List<T>();
         }
 
+      
+        public IEnumerator GetEnumerator()
+        {
+            return items.GetEnumerator();
+            //return (IEnumerator)this;
+        }
+
+
+        //public bool MoveNext()
+        //{
+        //    index++;
+        //    return (index < items.Count );
+        //}
+
+
+        //public void Reset()
+        //{
+
+        //    index = 0;
+        //}
+
+        //public object Current
+        //{
+
+        //    get { return items[index]; }
+        //}
         //Get item from list
         public T GetIndex(int index)
         {
             return items[index];
         }
 
+
         //insert item at the end of list
         public void Push(T newitem)
         {
-            items.Add(newitem);
+            items.Insert(0, newitem);
         }
 
         //Get item size
@@ -38,8 +67,8 @@ namespace Generics
          //Get item at the end of list
         public T Peek()
         {
-            int last = items.Count - 1;
-            return items[last];
+           
+            return items[0];
         }
 
         //checked if empty
@@ -58,9 +87,9 @@ namespace Generics
         //remove element at the end
         public T Pop()
         {
-            int last = items.Count;
-            T element = items[last - 1];
-            items.RemoveAt(last - 1);
+           
+            T element = items[0];
+            items.RemoveAt(0);
             return element;
         }
 
