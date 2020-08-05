@@ -1,26 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
 using System.Text;
 
 namespace Generics
 {
-    class QueueClass<T> where T: IComparable
+    class QueueClass<T> : IEnumerable
     {
 
         private List<T> items;
 
-        QueueClass()
+       public QueueClass()
         {
 
             items = new List<T>();
         }
+
+        
+         //get iterable list
+        public IEnumerator GetEnumerator()
+        {
+
+            return items.GetEnumerator();
+        }
+
 
         //get element at position
         public T GetIndex(int index)
         {
             return items[index];
         }
+
+
 
         //get the size
         public int Size()
@@ -80,10 +92,6 @@ namespace Generics
 
         }
 
-
-
-
-
-
+      
     }
 }

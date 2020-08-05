@@ -8,44 +8,23 @@ namespace Generics
 {
     class StackClass<T> : IEnumerable
     {
-        int index = -1;
-
+  
         private List<T> items;
 
         //creates a new Constructor list
         public StackClass()
         {
-
             items = new List<T>();
         }
 
-      
+         //get iterable list
         public IEnumerator GetEnumerator()
         {
             return items.GetEnumerator();
-            //return (IEnumerator)this;
+           
         }
 
 
-        //public bool MoveNext()
-        //{
-        //    index++;
-        //    return (index < items.Count );
-        //}
-
-
-        //public void Reset()
-        //{
-
-        //    index = 0;
-        //}
-
-        //public object Current
-        //{
-
-        //    get { return items[index]; }
-        //}
-        //Get item from list
         public T GetIndex(int index)
         {
             return items[index];
@@ -67,7 +46,7 @@ namespace Generics
          //Get item at the end of list
         public T Peek()
         {
-           
+       
             return items[0];
         }
 
@@ -87,7 +66,6 @@ namespace Generics
         //remove element at the end
         public T Pop()
         {
-           
             T element = items[0];
             items.RemoveAt(0);
             return element;
@@ -98,21 +76,12 @@ namespace Generics
         {
             if (items.Count > 0)
             {
-
                 for (int i = items.Count - 1; i >= 0; i--)
                 {
-
                     Console.WriteLine(items[i]);
                 }
-
-
             }
-
         }
-
-
-
-
 
     }
 }

@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Generics
 {
-    class LinkedListClass<T>
+    class LinkedListClass<T> 
     {
         private ListNodeClass<T> Result;
         private ListNodeClass<T> Current;
@@ -18,10 +19,8 @@ namespace Generics
 
             if (Head == null)
             {
-
                 Head = adding;
                 Tail = Head;
-
             }
 
             if (Head != null)
@@ -30,9 +29,7 @@ namespace Generics
                 adding.Previous = Tail;
                 Tail = adding;
                 Tail.Next = null;
-
             }
-
 
             count++;
             return count;
@@ -41,14 +38,12 @@ namespace Generics
 
         public int size()
         {
-
             return count;
         }
 
 
-        public ListNodeClass<T> FindItem(T value)
+        private ListNodeClass<T> FindItem(T value)
         {
-
             Current = Head;
 
             while (Current != null )
@@ -57,17 +52,14 @@ namespace Generics
                 {
 
                     return Current;
-
                 }
 
                 Current = Current.Next;
-
 
             }
 
             return null;
 
-           
     }
 
         public void Remove(T value)
@@ -92,9 +84,6 @@ namespace Generics
 
                 } else
                 {
-
-
-
                     previous.Next = next;
                 }
                 if (next == null)
@@ -107,17 +96,13 @@ namespace Generics
                         Tail.Next = null;
                     }
 
-                }else
+                } else
                 {
-
                     next.Previous = previous;
                 }
 
                 count--;
-
-
             }
-
 
         }
 
@@ -131,7 +116,6 @@ namespace Generics
                 return false;
             } else
             {
-
                 return true;
             }
 
@@ -150,8 +134,6 @@ namespace Generics
                 Head.Previous = adding;
                 Head = adding;
                 count++;
-
-
             }
             else
             {
@@ -165,23 +147,15 @@ namespace Generics
                     {
 
                         Result = Current;
-
                         Result.Previous.Next = adding;
                         adding.Previous = Result.Previous;
                         Result.Previous = adding;
                         adding.Next = Result;
-                     
-                     
-
                     }
 
                     Current = Current.Next;
-
                     number++;
-
-
                 }
-
 
             }
 
@@ -205,20 +179,8 @@ namespace Generics
 
                 Current = Current.Next;
                 position++;
-
-
-
-
             }
-
             return -1;
-
-
-
-
-
-
-
         }
 
 
@@ -246,5 +208,6 @@ namespace Generics
 
         }
 
+       
     }
 }
